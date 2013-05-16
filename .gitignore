@@ -1,0 +1,10 @@
+# Visual Studio user-generated files
+projects/windows/vs2008/*.ncb
+projects/windows/vs2008/*.suo
+projects/windows/vs2008/*.user
+projects/windows/vs2008/Debug
+projects/windows/vs2008/Release
+
+# Compiled Windows binaries
+bin/windows/Debug
+bin/windows/Release
