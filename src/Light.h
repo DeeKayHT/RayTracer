@@ -1,5 +1,5 @@
 #pragma once
-#include "Windows.h"
+#include "Color.h"
 #include "gfx/vec3.h"
 
 using namespace gfx;
@@ -22,9 +22,9 @@ public:
 	Light();
 	~Light(void);
 	
-	Light(float cx, float cy, float cz, COLORREF init_color);
+	Light(float cx, float cy, float cz, Color init_color);
 
-	void init(float cx, float cy, float cz, COLORREF init_color);
+	void init(float cx, float cy, float cz, Color init_color);
 };
 
 class LightBox : public Light
@@ -34,8 +34,8 @@ public:
 	float size;
 
 public:
-	LightBox(float cx, float cy, float cz, float size, COLORREF init_color);
+	LightBox(float cx, float cy, float cz, float size, Color init_color);
 	~LightBox(void);
 
-	void init(float cx, float cy, float cz, float init_size, COLORREF init_color);
+	void init(float cx, float cy, float cz, float init_size, Color init_color);
 };

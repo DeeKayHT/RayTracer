@@ -4,6 +4,11 @@ projects/windows/vs2008/*.suo
 projects/windows/vs2008/*.user
 projects/windows/vs2008/Debug
 projects/windows/vs2008/Release
+projects/windows/vs2012/*.sdf
+projects/windows/vs2012/*.suo
+projects/windows/vs2012/*.user
+projects/windows/vs2012/Debug
+projects/windows/vs2012/Release
 
 # Compiled Windows binaries
 bin/windows/Debug

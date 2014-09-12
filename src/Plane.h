@@ -1,5 +1,6 @@
 #pragma once
 #include "Geometry.h"
+#include "Color.h"
 
 using namespace gfx;
 
@@ -9,10 +10,10 @@ private:
 	Vec3f normal;
 
 public:
-	Plane(Vec3f init_norm, Vec3f init_pos, COLORREF init_color, bool reflect = true);
+	Plane(Vec3f init_norm, Vec3f init_pos, Color init_color, bool reflect = true);
 	~Plane(void);
 
-	void init(Vec3f init_norm, Vec3f init_pos, COLORREF init_color, bool reflect);
+	void init(Vec3f init_norm, Vec3f init_pos, Color init_color, bool reflect);
 	
 	virtual bool intersect_ray(Ray &ray, Vec3f &intersect_pt, int &result);
 	

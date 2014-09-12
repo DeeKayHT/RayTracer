@@ -1,6 +1,6 @@
 #include "Plane.h"
 
-Plane::Plane(Vec3f init_norm, Vec3f init_pos, COLORREF init_color, bool reflect)
+Plane::Plane(Vec3f init_norm, Vec3f init_pos, Color init_color, bool reflect)
 {
 	init(init_norm, init_pos, init_color, reflect);
 }
@@ -11,14 +11,14 @@ Plane::~Plane(void)
 
 // Initialize the plane's normal vector, position, color and whether it reflects
 //
-void Plane::init(Vec3f init_norm, Vec3f init_pos, COLORREF init_color, bool reflect)
+void Plane::init(Vec3f init_norm, Vec3f init_pos, Color init_color, bool reflect)
 {
 	normal = init_norm;
 	position = init_pos;
 
-	color[0] = ((float)GetRValue(init_color)) / 255.0f;
-	color[1] = ((float)GetGValue(init_color)) / 255.0f;
-	color[2] = ((float)GetBValue(init_color)) / 255.0f;
+	color[0] = (float)init_color.r / 255.0f;
+	color[1] = (float)init_color.g / 255.0f;
+	color[2] = (float)init_color.b / 255.0f;
 
 	// default values for light coefficient calculations
 	diffuse_coeff = 1.0f;

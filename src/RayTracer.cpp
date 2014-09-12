@@ -231,26 +231,26 @@ int main(int argc, const char* argv[])
 	// initialize the floor plane
 	Vec3f p1_norm(0.0f, 1.0f, 0.0f);
 	Vec3f p1_pos(0.0f, -40.0f, 0.0f);
-	Plane plane1(p1_norm, p1_pos, RGB(100, 200, 100), false);
+	Plane plane1(p1_norm, p1_pos, Color(100, 200, 100), false);
 	geometry_list.push_back(&plane1);
 
 	// initialize the background plane
 	Vec3f p2_norm(0.0f, 0.0f, -1.0f);
 	Vec3f p2_pos(0.0f, 0.0f, 220.0f);
-	Plane plane2(p2_norm, p2_pos, RGB(100, 100, 100), false);
+	Plane plane2(p2_norm, p2_pos, Color(100, 100, 100), false);
 	geometry_list.push_back(&plane2);
 
-	Sphere sphere1(-70.0f, 0.0f, 100.0f, 20.0f, RGB(200, 100, 100), 0.8f, 0.0f);
-	Sphere sphere2(0.0f, 0.0f, 50.0f, 20.0f, RGB(200, 200, 100), 0.8f, 0.0f);
-	Sphere sphere3(70.0f, 0.0f, 100.0f, 20.0f, RGB(100, 100, 200), 0.8f, 0.0f);
-	Sphere sphere4(40.0f, 0.0f, 50.0f, 5.0f, RGB(0, 0, 0), 0.8f, 1.5f, false);
+	Sphere sphere1(-70.0f, 0.0f, 100.0f, 20.0f, Color(200, 100, 100), 0.8f, 0.0f);
+	Sphere sphere2(0.0f, 0.0f, 50.0f, 20.0f, Color(200, 200, 100), 0.8f, 0.0f);
+	Sphere sphere3(70.0f, 0.0f, 100.0f, 20.0f, Color(100, 100, 200), 0.8f, 0.0f);
+	Sphere sphere4(40.0f, 0.0f, 50.0f, 5.0f, Color(0, 0, 0), 0.8f, 1.5f, false);
 	geometry_list.push_back(&sphere1);
 	geometry_list.push_back(&sphere2);
 	geometry_list.push_back(&sphere3);
 	geometry_list.push_back(&sphere4);
 	
-	Light light1(0.0f, 40.0f, 30.0f, RGB(255, 255, 255));
-	LightBox lightbox(0.0f, 50.0f, 10.0f, 10.0f, RGB(255,255,255));
+	Light light1(0.0f, 40.0f, 30.0f, Color(255, 255, 255));
+	LightBox lightbox(0.0f, 50.0f, 10.0f, 10.0f, Color(255,255,255));
 	//light_list.push_back(&light1);
 	light_list.push_back(&lightbox);
 

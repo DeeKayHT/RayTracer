@@ -1,6 +1,6 @@
 #include "Sphere.h"
 
-Sphere::Sphere(float cx, float cy, float cz, float init_radius, COLORREF init_color, 
+Sphere::Sphere(float cx, float cy, float cz, float init_radius, Color init_color, 
 			   float spec_coeff, float init_refract, bool reflect)
 {
 	init(cx, cy, cz, init_radius, init_color, spec_coeff, init_refract, reflect);
@@ -12,7 +12,7 @@ Sphere::~Sphere(void)
 
 // Initialize the sphere's position, radius, color, specular and refraction coefficients, and whether it should reflect
 //
-void Sphere::init(float cx, float cy, float cz, float init_radius, COLORREF init_color,
+void Sphere::init(float cx, float cy, float cz, float init_radius, Color init_color,
 				  float init_spec, float refract, bool reflect)
 {
 	position[0] = cx;
@@ -21,9 +21,9 @@ void Sphere::init(float cx, float cy, float cz, float init_radius, COLORREF init
 
 	radius = init_radius;
 
-	color[0] = ((float)GetRValue(init_color)) / 255.0f;
-	color[1] = ((float)GetGValue(init_color)) / 255.0f;
-	color[2] = ((float)GetBValue(init_color)) / 255.0f;
+	color[0] = (float)init_color.r / 255.0f;
+	color[1] = (float)init_color.g / 255.0f;
+	color[2] = (float)init_color.b / 255.0f;
 
 	diffuse_coeff = 1.0f;
 	specular_coeff = init_spec;
@@ -160,7 +160,7 @@ float Sphere::get_specular(Ray &view_ray, Vec3f &light_pos, Vec3f &intersect_pt)
 	normalize(light_vec);
 	Vec3f R = light_vec - 2.0f * (light_vec * light_norm) * light_norm;
 	
-	float dot = max(R * view_ray.direction, 0.0f);
+	float dot = std::max(R * view_ray.direction, 0.0f);
 	if (dot > 0.0f) {
 		spec = powf(dot, 20) * specular_coeff; 
 	}

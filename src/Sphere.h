@@ -1,5 +1,6 @@
 #pragma once
 #include "Geometry.h"
+#include "Color.h"
 
 using namespace gfx;
 
@@ -9,11 +10,11 @@ private:
 	float radius;
 
 public:
-	Sphere(float cx, float cy, float cz, float init_radius, COLORREF init_color,
+	Sphere(float cx, float cy, float cz, float init_radius, Color init_color,
 			float spec_coeff, float init_refract, bool reflect = true);
 	~Sphere(void);
 
-	void init(float cx, float cy, float cz, float init_radius, COLORREF init_color, 
+	void init(float cx, float cy, float cz, float init_radius, Color init_color, 
 				float spec_coeff, float refract, bool reflect);
 				
 	virtual bool intersect_ray(Ray &ray, Vec3f &intersect_pt, int &result);
