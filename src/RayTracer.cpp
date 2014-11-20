@@ -1,3 +1,5 @@
+#include <cmath>
+#include <cstdlib>
 #include <vector>
 #include <iostream>
 #include <fstream>
@@ -9,6 +11,11 @@
 #include "Plane.h"
 #include "Sphere.h"
 #include "Light.h"
+
+
+// ---------------------------------------------------------------------
+// Defines
+// ---------------------------------------------------------------------
 
 #define WIDTH	640
 #define HEIGHT	480
@@ -22,6 +29,14 @@
 #define DOF_NUM_RAYS	32
 #define DOF_STRENGTH	2.0f
 #define DOF_FOCAL_DIST	50.0f
+
+// Cross-platform function declarations
+#if defined(_MSC_VER)
+#define snprintf _snprintf
+#endif	// ifdef (_MSC_VER)
+
+
+// ---------------------------------------------------------------------
 
 using namespace gfx;
 using namespace std;
@@ -194,7 +209,7 @@ int main(int argc, const char* argv[])
 
 	const int FILENAME_BUFFER_SIZE = 32;
 	char filename[FILENAME_BUFFER_SIZE];
-	sprintf_s(filename, FILENAME_BUFFER_SIZE, "render_%s.tga", date);
+	snprintf(filename, FILENAME_BUFFER_SIZE, "render_%s.tga", date);
 
 	// save render to a file (render_MM_DD_YYYY.tga)
 	ofstream imageFile;
