@@ -1,14 +1,11 @@
 # Visual Studio user-generated files
-projects/windows/vs2008/*.ncb
-projects/windows/vs2008/*.suo
-projects/windows/vs2008/*.user
-projects/windows/vs2008/Debug
-projects/windows/vs2008/Release
-projects/windows/vs2012/*.sdf
-projects/windows/vs2012/*.suo
-projects/windows/vs2012/*.user
-projects/windows/vs2012/Debug
-projects/windows/vs2012/Release
+projects/windows/vs20*/*.ncb
+projects/windows/vs20*/*.suo
+projects/windows/vs20*/*.user
+projects/windows/vs20*/*.sdf
+projects/windows/vs20*/*.opensdf
+projects/windows/vs20*/Debug
+projects/windows/vs20*/Release
 
 # Compiled Windows binaries
 bin/windows/Debug

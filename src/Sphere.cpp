@@ -1,3 +1,5 @@
+#include <algorithm>
+
 #include "Sphere.h"
 
 Sphere::Sphere(float cx, float cy, float cz, float init_radius, Color init_color, 
