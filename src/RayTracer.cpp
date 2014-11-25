@@ -201,10 +201,10 @@ int main(int argc, const char* argv[])
 	const int DATE_BUFFER_SIZE = 12;
 	char date[DATE_BUFFER_SIZE];
 	if ( time(&raw_time) != -1 ) {
-		tm local_time;
+		tm* local_time = localtime(&raw_time);
 
-		if ( localtime_s(&local_time, &raw_time) == 0 ) {
-			strftime(date, DATE_BUFFER_SIZE, "%m_%d_%Y", &local_time);
+		if ( local_time != NULL ) {
+			strftime(date, DATE_BUFFER_SIZE, "%m_%d_%Y", local_time);
 		}
 	}
 
