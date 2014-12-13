@@ -10,3 +10,7 @@ projects/windows/vs20*/Release
 # Compiled Windows binaries
 bin/windows/Debug
 bin/windows/Release
+
+# Built Linux object files
+src/*.o
+

@@ -5,7 +5,7 @@ A simple raytracer made from scratch for a school assignment back in 2009.  The 
 
 Plans for the future:
 
-*  Get working in Linux
+*  ~~Get working in Linux~~
 *  Add ability to change objects rendered, image size, render quality, etc. without having to change the code
 *  Show the image being rendered in real-time
 *  Rendering optimizations, such as multi-threading and spacial boundaries
