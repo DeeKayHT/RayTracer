@@ -11,7 +11,7 @@
 // --------------------------------------------------------
 
 #include <stdint.h>
-#include "Color.h"
+#include "gfx/vec3.h"
 
 
 // --------------------------------------------------------
@@ -42,5 +42,5 @@ public:
 
 	bool init_buffer();
 	bool write_to_file(char* filename, ImageFormat format);
-	void set_pixel(int x, int y, Color color);
+	void set_pixel(int x, int y, gfx::Vec3f color);
 };

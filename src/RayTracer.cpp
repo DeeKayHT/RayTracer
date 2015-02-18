@@ -294,12 +294,11 @@ int main(int argc, const char* argv[])
 				dof_accum += pix_color;
 			}
 			pix_color /= DOF_NUM_RAYS;
-						
-			Color pixel_color;
-			pixel_color.r = (int)min(pix_color[0] * 255.0f, 255.0f);
-			pixel_color.g = (int)min(pix_color[1] * 255.0f, 255.0f);
-			pixel_color.b = (int)min(pix_color[2] * 255.0f, 255.0f);
-			render.set_pixel(x, y, pixel_color);
+
+			pix_color[0] = min(pix_color[0], 1.0f);
+			pix_color[1] = min(pix_color[1], 1.0f);
+			pix_color[2] = min(pix_color[2], 1.0f);
+			render.set_pixel(x, y, pix_color);
 		}
 	}
 	render.write_to_file(filename, IMG_FORMAT_TGA);

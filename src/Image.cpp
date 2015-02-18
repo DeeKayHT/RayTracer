@@ -63,6 +63,9 @@ bool Image::write_TGA(char* filename)
 	if (filename == NULL) {
 		return false;
 	}
+	if (image_buffer == NULL) {
+		return false;
+	}
 
 	std::ofstream imageFile;
 	imageFile.open(filename, std::ios_base::binary);
@@ -97,20 +100,29 @@ bool Image::write_TGA(char* filename)
 	imageFile.put(24);	// image is a 24-bit RGB bitmap
 	imageFile.put(0);
 
-	imageFile.write((char*)image_buffer, width * height * BYTES_PER_PIXEL);
+	// Write pixel data by rows into BGR from the buffer's RGB format
+	for (int y = 0; y < height; y++) {
+		for (int x = 0; x < width; x++) {
+			int index = (x * BYTES_PER_PIXEL) + (y * BYTES_PER_PIXEL * width);
+			imageFile.put( image_buffer[index + 2] );
+			imageFile.put( image_buffer[index + 1] );
+			imageFile.put( image_buffer[index + 0] );
+		}
+
+	}
 
 	imageFile.close();
 	return true;
 }
 
-void Image::set_pixel(int x, int y, Color color)
+void Image::set_pixel(int x, int y, gfx::Vec3f color)
 {
 	if (image_buffer == NULL) {
 		return;
 	}
 
 	int pixel_index = (x * BYTES_PER_PIXEL) + (y * BYTES_PER_PIXEL * width);
-	image_buffer[pixel_index + 0] = (uint8_t)color.b;
-	image_buffer[pixel_index + 1] = (uint8_t)color.g;
-	image_buffer[pixel_index + 2] = (uint8_t)color.r;
+	image_buffer[pixel_index + 0] = (uint8_t)(color[0] * 255.0f);
+	image_buffer[pixel_index + 1] = (uint8_t)(color[1] * 255.0f);
+	image_buffer[pixel_index + 2] = (uint8_t)(color[2] * 255.0f);
 }
