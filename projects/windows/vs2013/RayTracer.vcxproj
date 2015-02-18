@@ -95,6 +95,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\Image.cpp" />
     <ClCompile Include="..\..\..\src\Color.cpp" />
     <ClCompile Include="..\..\..\src\Geometry.cpp" />
     <ClCompile Include="..\..\..\src\Light.cpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="..\..\..\src\Sphere.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\src\Image.h" />
     <ClInclude Include="..\..\..\src\Color.h" />
     <ClInclude Include="..\..\..\src\Geometry.h" />
     <ClInclude Include="..\..\..\src\Light.h" />

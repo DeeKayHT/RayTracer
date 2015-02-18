@@ -7,6 +7,7 @@ public:
 	int g;
 	int b;
 
+	Color();
 	Color(int red, int green, int blue);
 	~Color(void);
 };

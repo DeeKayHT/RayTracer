@@ -3,10 +3,10 @@
 #include <cstdlib>
 #include <vector>
 #include <iostream>
-#include <fstream>
 #include <assert.h>
 #include <time.h>
 
+#include "Image.h"
 #include "Geometry.h"
 #include "Ray.h"
 #include "Plane.h"
@@ -33,7 +33,7 @@
 
 // Cross-platform function declarations
 #if defined(_MSC_VER)
-#define snprintf _snprintf
+#define snprintf _snprintf	// Note, MSVC _snprintf does NOT null-termiante!
 #endif	// ifdef (_MSC_VER)
 
 
@@ -212,36 +212,11 @@ int main(int argc, const char* argv[])
 	char filename[FILENAME_BUFFER_SIZE];
 	snprintf(filename, FILENAME_BUFFER_SIZE, "render_%s.tga", date);
 
-	// save render to a file (render_MM_DD_YYYY.tga)
-	ofstream imageFile;
-	imageFile.open(filename, ios_base::binary);
-
-	// TODO: Check for existing files and increment filename
-	if ( !imageFile ) {
-		return false;
+	Image render(WIDTH, HEIGHT);
+	if (render.init_buffer() == false) {
+		return -1;
 	}
-	
-	// TGA Format Description: http://paulbourke.net/dataformats/tga/
-	// Addition of the TGA header
-	imageFile.put(0);
-	imageFile.put(0);
-	imageFile.put(2);        /* RGB not compressed */
 
-	imageFile.put(0);
-	imageFile.put(0);
-	imageFile.put(0);
-	imageFile.put(0);
-	imageFile.put(0);
-
-	imageFile.put(0);
-	imageFile.put(0); /* origin X */ 
-	imageFile.put(0);
-	imageFile.put(0); /* origin Y */
-
-	imageFile.put((unsigned char)(WIDTH & 0x00FF)).put((unsigned char)((WIDTH & 0xFF00) / 256));
-	imageFile.put((unsigned char)(HEIGHT & 0x00FF)).put((unsigned char)((HEIGHT & 0xFF00) / 256));
-	imageFile.put(24);       /* 24 bit bitmap */ 
-	imageFile.put(0); 
 
 	// initialize the scene
 	// initialize the floor plane
@@ -319,14 +294,15 @@ int main(int argc, const char* argv[])
 				dof_accum += pix_color;
 			}
 			pix_color /= DOF_NUM_RAYS;
-
-			imageFile.put((unsigned char)min(pix_color[2]*255.0f, 255.0f));
-			imageFile.put((unsigned char)min(pix_color[1]*255.0f, 255.0f));
-			imageFile.put((unsigned char)min(pix_color[0]*255.0f, 255.0f));
+						
+			Color pixel_color;
+			pixel_color.r = (int)min(pix_color[0] * 255.0f, 255.0f);
+			pixel_color.g = (int)min(pix_color[1] * 255.0f, 255.0f);
+			pixel_color.b = (int)min(pix_color[2] * 255.0f, 255.0f);
+			render.set_pixel(x, y, pixel_color);
 		}
 	}
-
-	imageFile.close();
+	render.write_to_file(filename, IMG_FORMAT_TGA);
 
 	return 0;
 }
