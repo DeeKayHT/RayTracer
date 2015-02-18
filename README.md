@@ -1,7 +1,9 @@
 RayTracer
 =========
 
-A simple raytracer made from scratch for a school assignment back in 2009.  The program currently runs only on Windows and is only able to render a 640x480 image showing three colored balls, one glass ball, and a few colored planes.  Some effects rendered are reflections, refractions, soft shadows, and depth-of-field (motion-blur is available, but must be enabled through code).
+A simple raytracer made from scratch for a school assignment back in 2009.  The program is currently only able to render a 640x480 image showing three colored balls, one glass ball, and a few colored planes.  Some effects rendered are reflections, refractions, soft shadows, and depth-of-field (motion-blur is available, but must be enabled through code).
+
+The source is compatible with both Linux and Windows.
 
 Plans for the future:
 
