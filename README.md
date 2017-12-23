@@ -19,13 +19,13 @@ Special thanks to Craig Grupp, who worked with me at the time on the assignment 
 
 ---
 
-##Legal##
->###libgfx###
+## Legal
+### libgfx
 
->Uses portions of libgfx by Michael Garland available at: http://mgarland.org/software/libgfx.html
+Uses portions of libgfx by Michael Garland available at: http://mgarland.org/software/libgfx.html
 
->Terms and Conditions
+Terms and Conditions
 
->Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, provided that the above copyright notice(s) and this permission notice appear in all copies of the Software and that both the above copyright notice(s) and this permission notice appear in supporting documentation.
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, provided that the above copyright notice(s) and this permission notice appear in all copies of the Software and that both the above copyright notice(s) and this permission notice appear in supporting documentation.
 
->libgfx Copyright © 1999–2001 Michael Garland. All rights reserved. 
+libgfx Copyright © 1999–2001 Michael Garland. All rights reserved. 
