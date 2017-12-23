@@ -4,6 +4,7 @@ projects/windows/vs20*/*.suo
 projects/windows/vs20*/*.user
 projects/windows/vs20*/*.sdf
 projects/windows/vs20*/*.opensdf
+projects/windows/vs20*/.vs
 projects/windows/vs20*/Debug
 projects/windows/vs20*/Release
 
